@@ -2,6 +2,7 @@ const BASE_URL = 'http://localhost:3050';
 
 export default async function apiCall({ url: apiUrl, method, data, headers }) {
   const url = new URL(apiUrl, BASE_URL).href;
+  console.log(url);
   const defaultHeaders = {
     'Content-Type': 'application/json'
   };

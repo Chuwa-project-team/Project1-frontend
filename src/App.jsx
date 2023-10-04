@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+import ProductList from './pages/ProductList';
 import MainLayout from './components/Layout';
 
 
@@ -22,6 +23,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+      <Route path="" element={<ProductList />} />
         <Route path="/" element={<MainLayout />} />
         <Route path="signup" element={<SignIn />} />
         <Route path="signin" element={<SignUp />} />
