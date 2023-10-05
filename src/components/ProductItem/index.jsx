@@ -1,8 +1,7 @@
-/* eslint-disable no-unused-vars */
+
 /* eslint-disable react/prop-types */
 import {  InputNumber } from 'antd';
 export default function ProductItem ({
-    key,
     imageUrl,
     price,
     description,

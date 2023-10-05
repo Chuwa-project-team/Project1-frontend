@@ -23,8 +23,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-      <Route path="" element={<ProductList />} />
         <Route path="/" element={<MainLayout />} />
+        <Route path="home" element={<ProductList />} />
         <Route path="signup" element={<SignIn />} />
         <Route path="signin" element={<SignUp />} />
       </Routes>
