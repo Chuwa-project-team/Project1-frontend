@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import ProductList from './pages/ProductList';
+import ForgetPassword from './pages/ForgetPassword';
 import MainLayout from './components/Layout';
 
 
@@ -24,9 +25,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainLayout />} />
-        <Route path="home" element={<ProductList />} />
-        <Route path="signup" element={<SignIn />} />
-        <Route path="signin" element={<SignUp />} />
+        <Route path="signup" element={<SignUp />} />
+        <Route path="signin" element={<SignIn />} />
+        <Route path="password" element={<ForgetPassword />} />
       </Routes>
     </BrowserRouter>
   )
