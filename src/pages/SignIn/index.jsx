@@ -22,7 +22,6 @@ export default function SignIn() {
   ];
 
   const onSubmit = data => {
-    console.log(data);
     dispatch(authUser(data)).then(() => {
       navigate(location.state?.from || '/');
     });
