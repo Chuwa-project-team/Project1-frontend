@@ -42,7 +42,7 @@ const Navbar = () => {
                         <UserOutlined />
                         {isAuthenticated ? (
                             <>
-                                <Link to="/" onClick={() => dispatch(logOutUser())}>Sign out</Link>
+                                <a onClick={() => dispatch(logOutUser())}>Sign out</a>
                             </>
                         ) : (
                             <>
