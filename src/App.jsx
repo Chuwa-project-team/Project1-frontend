@@ -11,9 +11,7 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import ProductList from './pages/ProductList';
 import ForgetPassword from './pages/ForgetPassword';
-import AuthLayout from './components/Layout/AuthLayout';
 import CreateProduct from './pages/CreateProduct';
-import EditProduct from './pages/EditProduct';
 import NotFound from './pages/NotFound';
 
 
@@ -33,10 +31,7 @@ function App() {
           <Route path="signup" element={<SignUp />} />
           <Route path="signin" element={<SignIn />} />
           <Route path="password" element={<ForgetPassword />} />
-          <Route element={<AuthLayout />}>
-            <Route path="createProduct" element={<CreateProduct />} />
-            <Route path="editProduct/:productID" element={EditProduct} />
-          </Route>
+          <Route path="createProduct" element={<CreateProduct />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
@@ -44,6 +39,10 @@ function App() {
   )
 }
 
+// <Route element={<AuthLayout />}>
+//     <Route path="createProduct" element={<CreateProduct />} />
+//     <Route path="editProduct/:productID" element={EditProduct} />
+// </Route>
 
 export default App;
 
