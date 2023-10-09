@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
 import { useSelector } from 'react-redux';
 import currentUserSlice, { setCurrentUser, logOutUser } from './app/userSlice';
 import { useEffect } from 'react';
@@ -12,6 +11,7 @@ import SignUp from './pages/SignUp';
 import ProductList from './pages/ProductList';
 import ForgetPassword from './pages/ForgetPassword';
 import CreateProduct from './pages/CreateProduct';
+import EditProduct from './pages/EditProduct';
 import NotFound from './pages/NotFound';
 
 
@@ -31,18 +31,16 @@ function App() {
           <Route path="signup" element={<SignUp />} />
           <Route path="signin" element={<SignIn />} />
           <Route path="password" element={<ForgetPassword />} />
+          {/* <Route element={<AuthLayout />}> */}
           <Route path="createProduct" element={<CreateProduct />} />
+          <Route path="editProduct/:productID" element={<EditProduct />} />
+          {/* </Route> */}
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
   )
 }
-
-// <Route element={<AuthLayout />}>
-//     <Route path="createProduct" element={<CreateProduct />} />
-//     <Route path="editProduct/:productID" element={EditProduct} />
-// </Route>
 
 export default App;
 

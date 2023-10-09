@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import ProductForm from '../../components/Form/productForm';
 // import { authUser } from '../../app/userSlice';
 
-export default function CreateProduct() {
+export default function EditProduct() {
   const dispatch = useDispatch();
 //   const navigate = useNavigate();
 //   const location = useLocation();
