@@ -35,11 +35,6 @@ export default function CreateProduct() {
         type: 'text'
     },
     {
-        label: 'In Stock Quantity',
-        name: 'productQuantity',
-        type: 'text'
-    },
-    {
         label: 'Add Image Link',
         placeholder: 'http://',
         name: 'productImage',
