@@ -1,12 +1,11 @@
 // import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useNavigate, useLocation } from 'react-router-dom';
 import ProductForm from '../../components/Form/productForm';
-// import { authUser } from '../../app/userSlice';
+import { createNewProduct } from '../../services/product';
 
 export default function CreateProduct() {
-  const dispatch = useDispatch();
-//   const navigate = useNavigate();
-//   const location = useLocation();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const fields = [
     {
@@ -42,8 +41,14 @@ export default function CreateProduct() {
     }
   ];
 
-  const onSubmit = () => {
-    dispatch();
+  const onSubmit = async (formData) => {
+    try {
+      const newProduct = await createNewProduct(formData);
+      navigate(location.state?.from || '/');
+      return newProduct;
+    } catch (err) {
+      console.error("Error creating new product: ", err);
+    }
   };
 
   return (

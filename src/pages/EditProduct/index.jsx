@@ -56,7 +56,7 @@ export default function EditProduct() {
       <ProductForm
         buttonText="Add Product"
         onSubmit={onSubmit}
-        title="Create Product"
+        title="Edit Product"
         fields={fields}
       />
     </div>
