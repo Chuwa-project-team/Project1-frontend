@@ -8,3 +8,19 @@ export const getAllProducts = async data => {
     data
   });
 };
+
+export const createNewProduct = async data => {
+  return await apiCall({
+    url: '/api/products',
+    method: 'POST',
+    data
+  });
+};
+
+export const updateProduct = async (name, data) => {
+  return await apiCall({
+    url: `/api/product/${name}`,
+    method: 'PUT',
+    data
+  });
+};

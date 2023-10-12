@@ -1,49 +1,54 @@
 // import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useNavigate, useLocation } from 'react-router-dom';
 import ProductForm from '../../components/Form/productForm';
-// import { authUser } from '../../app/userSlice';
+import { createNewProduct } from '../../services/product';
 
 export default function CreateProduct() {
-  const dispatch = useDispatch();
-//   const navigate = useNavigate();
-//   const location = useLocation();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const fields = [
     {
         label: 'Product Name',
-        name: 'productName',
+        name: 'name',
         type: 'text'
     },
     {
         label: 'Product Description',
-        name: 'productDescription',
+        name: 'description',
         type: 'textarea'
     },
     {
         label: 'Category',
-        name: 'productCategory',
+        name: 'category',
         type: 'select'
     },
     {
         label: 'Price',
-        name: 'productPrice',
+        name: 'price',
         type: 'text'
     },
     {
         label: 'In Stock Quantity',
-        name: 'productQuantity',
+        name: 'quantity',
         type: 'text'
     },
     {
         label: 'Add Image Link',
         placeholder: 'http://',
-        name: 'productImage',
+        name: 'imageUrl',
         type: 'text'
     }
   ];
 
-  const onSubmit = () => {
-    dispatch();
+  const onSubmit = async (formData) => {
+    try {
+      const response = await createNewProduct(formData);
+      navigate(location.state?.from || '/');
+      console.log(`Product successfully created ${response}`);
+    } catch (err) {
+      console.error("Error creating new product: ", err);
+    }
   };
 
   return (
