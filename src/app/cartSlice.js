@@ -6,17 +6,17 @@ export const initialState = {
   products: [],
 };
 
-const currentUserSlice = createSlice({
+const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
       editProduct: (state, action) => {
-        const { id, value } = action.payload;
-        const product = state.products.find(product => product.id === id);
-        if (product) { 
-          product.quantity = product.quantity + value;
+        const { product, value } = action.payload;
+        const old_product = state.products.find(p => p.product.name === product.name);
+        if (old_product) { 
+          old_product.count = old_product.count + value;
          } else {
-          state.products.push(action.payload);
+          state.products.push({product: product, count: value});
          }
       },
       clearCart: (state, action) => {
@@ -26,6 +26,6 @@ const currentUserSlice = createSlice({
 
   });
   
-  export const { editProduct, clearCart } = currentUserSlice.actions;
+  export const { editProduct, clearCart } = cartSlice.actions;
   
-  export default currentUserSlice.reducer;
+  export default cartSlice.reducer;

@@ -25,9 +25,9 @@ export default function ProductItem ({
         {description}
         <br/>
         {count === 0?(
-            <button onClick={countHandler(1)}>Add</button>           
+            <button onClick={()=>countHandler(1)}>Add</button>           
              ):(
-            <InputNumber addonBefore={<p onClick={countHandler(1)}>+1</p>} addonAfter={<p onClick={countHandler(-1)}>-1</p>} defaultValue={0}></InputNumber>)
+            <InputNumber addonBefore={<p onClick={()=>countHandler(1)}>+1</p>} addonAfter={<p onClick={()=>countHandler(-1)}>-1</p>} defaultValue={0} value={count}></InputNumber>)
         }  
         {userRole === "admin"?(<button onClick={editHandler}>Edit</button>):(<button onClick={editHandler}>Edit</button>)
         }  
