@@ -1,12 +1,23 @@
 // import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import ProductForm from '../../components/Form/productForm';
-// import { authUser } from '../../app/userSlice';
+import { updateProduct } from '../../services/product';
 
 export default function EditProduct() {
-  const dispatch = useDispatch();
-//   const navigate = useNavigate();
-//   const location = useLocation();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const [productData, setProductData] = useState(null);
+
+  useEffect(() => {
+    // check if location.state passes product original data
+    if(location.state?.product) {
+      setProductData(location.state.product);
+    } else {
+      console.error("No original product value passes!");
+    }
+  }, [location]);
 
   const fields = [
     {
@@ -42,8 +53,14 @@ export default function EditProduct() {
     }
   ];
 
-  const onSubmit = () => {
-    dispatch();
+  const onSubmit = async (formData) => {
+    try {
+      const response = await updateProduct(productData?.name, formData);
+      navigate(location.state?.from || '/');
+      console.log(`Product successfully edited ${response}`);
+    } catch (err) {
+      console.error("Error when updating a product: ", err);
+    }
   };
 
   return (
@@ -53,6 +70,7 @@ export default function EditProduct() {
         onSubmit={onSubmit}
         title="Edit Product"
         fields={fields}
+        initialValueContents={productData}
       />
     </div>
   );

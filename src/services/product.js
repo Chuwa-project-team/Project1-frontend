@@ -17,9 +17,9 @@ export const createNewProduct = async data => {
   });
 };
 
-export const updateProduct = async data => {
+export const updateProduct = async (name, data) => {
   return await apiCall({
-    url: '/api/product/:name',
+    url: `/api/product/${name}`,
     method: 'PUT',
     data
   });

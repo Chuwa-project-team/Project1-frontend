@@ -10,6 +10,7 @@ export default function ProductForm({
     onSubmit,
     title,
     fields,
+    initialValueContents,
     errors
 }) {
     const {status} = useSelector(state => state.user);
@@ -48,6 +49,7 @@ export default function ProductForm({
                     name={field.name}
                     label={field.label}
                     rules={field.rules}
+                    initialValue={initialValueContents}
                 >
                     {field.type === "textarea" ? (
                     <Input.TextArea

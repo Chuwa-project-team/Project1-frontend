@@ -33,7 +33,7 @@ function App() {
           <Route path="password" element={<ForgetPassword />} />
           {/* <Route element={<AuthLayout />}> */}
           <Route path="createProduct" element={<CreateProduct />} />
-          <Route path="editProduct/:productID" element={<EditProduct />} />
+          <Route path="editProduct/:name" element={<EditProduct />} />
           {/* </Route> */}
           <Route path="*" element={<NotFound />} />
         </Route>
