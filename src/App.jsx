@@ -12,6 +12,7 @@ import ProductList from './pages/ProductList';
 import ForgetPassword from './pages/ForgetPassword';
 import CreateProduct from './pages/CreateProduct';
 import EditProduct from './pages/EditProduct';
+import Product from './pages/Product';
 import NotFound from './pages/NotFound';
 
 
@@ -34,6 +35,7 @@ function App() {
           {/* <Route element={<AuthLayout />}> */}
           <Route path="createProduct" element={<CreateProduct />} />
           <Route path="editProduct/:productID" element={<EditProduct />} />
+          <Route path = "product/:productID" element={<Product />} />
           {/* </Route> */}
           <Route path="*" element={<NotFound />} />
         </Route>

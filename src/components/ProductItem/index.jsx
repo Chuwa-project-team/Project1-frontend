@@ -3,6 +3,7 @@
 /* eslint-disable react/prop-types */
 import {  InputNumber } from 'antd';
 import placeholderImage from '../../assets/place_holder.jpg';
+import { Link } from 'react-router-dom';
 export default function ProductItem ({
     name,
     imageUrl,
@@ -16,7 +17,23 @@ export default function ProductItem ({
 
     return(
         <>
-        <img src={placeholderImage} alt="Placeholder" width={300} height={200} />
+        <Link to={{pathname: `/product/${name}`,
+        state: {
+        product: {
+            name,
+            imageUrl,
+            price,
+            description,
+            count,
+            countHandler,
+            editHandler,
+            userRole
+                }
+                }
+            }}>
+            <img src={placeholderImage} alt="Placeholder" width={300} height={200} />
+        </Link>
+
         <br/>
         {name}
         <br/>
