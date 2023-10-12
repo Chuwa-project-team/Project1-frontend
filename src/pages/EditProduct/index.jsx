@@ -11,38 +11,33 @@ export default function EditProduct() {
   const fields = [
     {
         label: 'Product Name',
-        name: 'productName',
+        name: 'name',
         type: 'text'
     },
     {
         label: 'Product Description',
-        name: 'productDescription',
+        name: 'description',
         type: 'textarea'
     },
     {
         label: 'Category',
-        name: 'productCategory',
+        name: 'category',
         type: 'select'
     },
     {
         label: 'Price',
-        name: 'productPrice',
+        name: 'price',
         type: 'text'
     },
     {
         label: 'In Stock Quantity',
-        name: 'productQuantity',
-        type: 'text'
-    },
-    {
-        label: 'In Stock Quantity',
-        name: 'productQuantity',
+        name: 'quantity',
         type: 'text'
     },
     {
         label: 'Add Image Link',
         placeholder: 'http://',
-        name: 'productImage',
+        name: 'imageUrl',
         type: 'text'
     }
   ];
@@ -54,7 +49,7 @@ export default function EditProduct() {
   return (
     <div>
       <ProductForm
-        buttonText="Add Product"
+        buttonText="Edit Product"
         onSubmit={onSubmit}
         title="Edit Product"
         fields={fields}

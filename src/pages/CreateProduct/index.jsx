@@ -10,42 +10,42 @@ export default function CreateProduct() {
   const fields = [
     {
         label: 'Product Name',
-        name: 'productName',
+        name: 'name',
         type: 'text'
     },
     {
         label: 'Product Description',
-        name: 'productDescription',
+        name: 'description',
         type: 'textarea'
     },
     {
         label: 'Category',
-        name: 'productCategory',
+        name: 'category',
         type: 'select'
     },
     {
         label: 'Price',
-        name: 'productPrice',
+        name: 'price',
         type: 'text'
     },
     {
         label: 'In Stock Quantity',
-        name: 'productQuantity',
+        name: 'quantity',
         type: 'text'
     },
     {
         label: 'Add Image Link',
         placeholder: 'http://',
-        name: 'productImage',
+        name: 'imageUrl',
         type: 'text'
     }
   ];
 
   const onSubmit = async (formData) => {
     try {
-      const newProduct = await createNewProduct(formData);
+      const response = await createNewProduct(formData);
       navigate(location.state?.from || '/');
-      return newProduct;
+      console.log(`Product successfully created ${response}`);
     } catch (err) {
       console.error("Error creating new product: ", err);
     }
