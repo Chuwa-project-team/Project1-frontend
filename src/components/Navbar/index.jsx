@@ -17,7 +17,6 @@ const onSearch = (value, _e, info) => console.log(info?.source, value);
 
 const Navbar = ({handleCartModalOpen}) => {    
     const  totalPrice  = useSelector(state => state.cart.totalPrice);
-    console.log('totalPrice,',totalPrice);
     const { user, isAuthenticated } = useSelector(state => state.user);
     const dispatch = useDispatch();
     return (

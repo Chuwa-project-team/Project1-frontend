@@ -5,8 +5,8 @@ import  {getAllProducts} from '../../services/product';
 import ProductItem from '../../components/ProductItem';
 import { useSelector, useDispatch } from 'react-redux';
 import { editCartProduct } from '../../app/cartSlice';
-
 export default function ProductList() {
+    const { isAuthenticated, user } = useSelector(state => state.user);
     const cartProducts = useSelector(state => state.cart.products);
     const dispatch = useDispatch();
     const [products, setProducts] = useState([]);
@@ -51,7 +51,8 @@ export default function ProductList() {
                   count={countValue}
                   countHandler={cartCountHandlerCreator(product)}
                   editHandler={() => {editHandler(product)}}
-                  userRole="admin"
+                  isAuthenticated={isAuthenticated}
+                  userRole={user.role}
                   />
               </Col>
             );

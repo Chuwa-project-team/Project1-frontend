@@ -23,12 +23,14 @@ export default function ProductItem ({
         <br/>
         {description}
         <br/>
-        {count === 0?(
-            <button onClick={()=>countHandler(1)}>Add</button>           
-             ):(
-            <Counter handler={countHandler} value={count} ></Counter>)
-        }  
-        {userRole === "admin"?(<button onClick={editHandler}>Edit</button>):(<button onClick={editHandler}>Edit</button>)
+        {userRole === "regular" || userRole === "admin" ? (
+            count === 0?(
+                <button onClick={()=>countHandler(1)}>Add</button>           
+                ):(
+                <Counter handler={countHandler} value={count} ></Counter>)
+            ) : ( 
+                null )} 
+        {userRole === "admin"?(<button onClick={editHandler}>Edit</button>):(null)
         }  
         </>
     )

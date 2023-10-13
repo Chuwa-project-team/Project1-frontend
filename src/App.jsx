@@ -16,17 +16,25 @@ import NotFound from './pages/NotFound';
 
 
 function App() {
-  const user = useSelector(state => state.user.user);
   const dispatch = useDispatch();
-  //dispatch(setCurrentUser({ id: 1, username: 'exampleUser' }));
-  // useEffect(() => {
-  //   console.log(user);
-  // }, [user]);
-  console.log('App')
+  useEffect(() => {
+    const userString = localStorage.getItem('user');
+    if (userString) {
+      try {
+        const userData = JSON.parse(userString);
+        dispatch(setCurrentUser(userData));
+      } catch (e) {
+        console.error("Parsing error:", e);
+      }
+    }
+  }, [dispatch]); 
+  const user = useSelector(state => state.user.user);
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainLayout />} >
+          <Route index element={<ProductList />} />
           <Route path="home" element={<ProductList />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="signin" element={<SignIn />} />

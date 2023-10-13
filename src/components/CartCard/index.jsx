@@ -26,7 +26,6 @@ function CartCard({isOpen,onCancel}) {
         <Modal open = {isOpen} title="Cart" onOk={onCancel} onCancel={onCancel}>
         <Row gutter={16}> {/* Adjust gutter as needed */}
           {cartProducts.map(({product,count}) => {
-            //console.log(countValue)
             return (
               <Col key={product.name} xs={24} sm={24} md={24} lg={24}>
                 <CartItem
