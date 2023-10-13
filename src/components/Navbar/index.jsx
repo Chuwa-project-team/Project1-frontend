@@ -7,6 +7,7 @@ const { Search } = Input;
 import { MenuOutlined, UserOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import { logOutUser } from '../../app/userSlice';
 import RightMenu from './RightMenu';
+import PropTypes from 'prop-types';
 
 import './style.css';
 
@@ -14,11 +15,13 @@ const TITLE = 'Management';
 
 const onSearch = (value, _e, info) => console.log(info?.source, value);
 
-const Navbar = () => {
+const Navbar = ({handleCartModalOpen}) => {    
+    const  totalPrice  = useSelector(state => state.cart.totalPrice);
+    console.log('totalPrice,',totalPrice);
     const { user, isAuthenticated } = useSelector(state => state.user);
     const dispatch = useDispatch();
-
     return (
+        <>
         <nav className="navbar">
             <Link to="/" className="logo">
             {TITLE}
@@ -50,12 +53,19 @@ const Navbar = () => {
                             </>
                         )}
                     </div>
-                    <ShoppingCartOutlined />
-                    <span>$<span>0.00</span></span>
+                    <div onClick={handleCartModalOpen}>
+                    <ShoppingCartOutlined  />
+                    <span>$<span>{totalPrice}</span></span>
+                    </div>
                 </Space>
             </div>
         </nav>
+
+        </>
     );
 }
 
+Navbar.propTypes = {
+    handleCartModalOpen: PropTypes.func.isRequired,
+};
 export default Navbar;

@@ -1,16 +1,14 @@
 /* eslint-disable no-unused-vars */
-
 /* eslint-disable react/prop-types */
 import   Counter  from '../Counter';
 import placeholderImage from '../../assets/place_holder.jpg';
-export default function ProductItem ({
+export default function CartItem ({
     name,
     imageUrl,
     price,
-    description,
     count,
     countHandler,
-    editHandler,
+    removeHandler,
     userRole
 }) {
 
@@ -21,15 +19,13 @@ export default function ProductItem ({
         <br/>
         ${price}
         <br/>
-        {description}
-        <br/>
         {count === 0?(
             <button onClick={()=>countHandler(1)}>Add</button>           
              ):(
             <Counter handler={countHandler} value={count} ></Counter>)
         }  
-        {userRole === "admin"?(<button onClick={editHandler}>Edit</button>):(<button onClick={editHandler}>Edit</button>)
-        }  
+        <button onClick={removeHandler}>Remove</button>
+        
         </>
     )
 }

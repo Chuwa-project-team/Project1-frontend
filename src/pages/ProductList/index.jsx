@@ -4,7 +4,7 @@ import { Col, Row } from 'antd';
 import  {getAllProducts} from '../../services/product';
 import ProductItem from '../../components/ProductItem';
 import { useSelector, useDispatch } from 'react-redux';
-import { editProduct } from '../../app/cartSlice';
+import { editCartProduct } from '../../app/cartSlice';
 
 export default function ProductList() {
     const cartProducts = useSelector(state => state.cart.products);
@@ -26,7 +26,7 @@ export default function ProductList() {
     }
     const cartCountHandler = (product, value) => {
       // Dispatch an action to update the cart
-      dispatch(editProduct({product, value}));
+      dispatch(editCartProduct({product, value}));
     };
 
     
