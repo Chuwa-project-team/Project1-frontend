@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthForm from '../../components/Form/authForm';
@@ -22,7 +23,8 @@ export default function ForgetPassword() {
   ];
 
   const onSubmit = data => {
-    dispatch(signUpUser(data)).then(() => navigate('/signin'));
+    // dispatch(signUpUser(data)).then(() => navigate('/passwordEmailSent'));
+    navigate('/passwordEmailSent');
   };
   return (
     <div>

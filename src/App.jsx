@@ -13,7 +13,7 @@ import ForgetPassword from './pages/ForgetPassword';
 import CreateProduct from './pages/CreateProduct';
 import EditProduct from './pages/EditProduct';
 import NotFound from './pages/NotFound';
-
+import PasswordEmailSent from './pages/PasswordEmailSent';
 
 function App() {
   const dispatch = useDispatch();
@@ -40,9 +40,10 @@ function App() {
           <Route path="signin" element={<SignIn />} />
           <Route path="password" element={<ForgetPassword />} />
           {/* <Route element={<AuthLayout />}> */}
-          <Route path="createProduct" element={<CreateProduct />} />
+          <Route path="createProduct" element={<CreateProduct />} />          
           <Route path="editProduct/:name" element={<EditProduct />} />
           {/* </Route> */}
+          <Route path="passwordEmailSent" element={<PasswordEmailSent />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
