@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 export default function PriceSummary({subtotal,discount}) {
+    const estimatedTotal = discount? ((subtotal * 1.1 )-discount).toFixed(2):(subtotal * 1.1).toFixed(2);
     return (
         <div style={{ width: '200px', fontFamily: 'Arial' }}>
             <div style={rowStyle}>
@@ -12,11 +13,11 @@ export default function PriceSummary({subtotal,discount}) {
             </div>
             <div style={rowStyle}>
                 <span>Discount</span>
-                <span>${discount ? discount.toFixed(2):'0.00'}</span>
+                <span>$-{discount ? discount.toFixed(2):'0.00'}</span>
             </div>
             <div style={{ ...rowStyle, borderTop: '1px solid black', paddingTop: '5px' }}>
                 <strong>Estimated total</strong>
-                <strong>${ discount? ((subtotal * 1.1 )-discount).toFixed(2):(subtotal * 1.1).toFixed(2)}</strong>
+                <strong>${ estimatedTotal>=0? (estimatedTotal.toFixed(2)):(0).toFixed(2)}</strong>
             </div>
         </div>
     );
