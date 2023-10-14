@@ -22,7 +22,7 @@ function App() {
           <Text type="secondary">Category1</Text>
           <Title level={2}>Meta Quest2 VR headset</Title>
           <Title level={3}>$299</Title>
-          <Tag color="red">Out of Stock</Tag>
+          <Tag color="red" style = "" >Out of Stock</Tag>
           <Text>
             Hundreds of hit games, one-of-a-kind experiences, live events,
             new ways to stay fit and a growing community... 
