@@ -17,7 +17,7 @@ export default function PriceSummary({subtotal,discount}) {
             </div>
             <div style={{ ...rowStyle, borderTop: '1px solid black', paddingTop: '5px' }}>
                 <strong>Estimated total</strong>
-                <strong>${ estimatedTotal>=0? (estimatedTotal.toFixed(2)):(0).toFixed(2)}</strong>
+                <strong>${ estimatedTotal>=0? (estimatedTotal):(0).toFixed(2)}</strong>
             </div>
         </div>
     );

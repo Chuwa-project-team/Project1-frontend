@@ -54,7 +54,7 @@ const Navbar = ({handleCartModalOpen}) => {
                     </div>
                     <div onClick={handleCartModalOpen}>
                     <ShoppingCartOutlined  />
-                    <span>$<span>{totalPrice}</span></span>
+                    <span>$<span>{totalPrice.toFixed(2)}</span></span>
                     </div>
                 </Space>
             </div>
