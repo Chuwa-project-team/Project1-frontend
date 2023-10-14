@@ -17,11 +17,11 @@ const headerStyle = {
 };
 
 const contentStyle = {
-    textAlign: 'center',
+    //textAlign: 'center',
     minHeight: 120,
-    lineHeight: '120px',
-    color: '#fff',
-    backgroundColor: '#108ee9',
+    //lineHeight: '120px',
+    //color: '#fff',
+    //backgroundColor: '#108ee9',
 };
   
 const footerStyle = {
