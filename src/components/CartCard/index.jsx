@@ -5,9 +5,13 @@ import React, { useState, useEffect } from 'react';
 import Counter from '../Counter'
 import { editCartProduct } from '../../app/cartSlice';
 import {  Modal } from 'antd';
-import { Col, Row } from 'antd';
+import { Col, Row, Divider } from 'antd';
 import CartItem from './CartItem';
+import CouponAdder from './CouponAdder';
+import PriceSummary from './PriceSummary';
 function CartCard({isOpen,onCancel}) {
+    const totalPrice = useSelector(state => state.cart.totalPrice);
+    const [discount, setDiscount] = useState(0);
     const cartProducts = useSelector(state => state.cart.products);
     const dispatch = useDispatch();
 
@@ -40,6 +44,9 @@ function CartCard({isOpen,onCancel}) {
             );
           })}
         </Row>
+        <CouponAdder setDiscount={setDiscount} />
+        <Divider />
+        <PriceSummary subtotal={totalPrice} discount={Number(discount)}></PriceSummary>
         </Modal>
     )
     
