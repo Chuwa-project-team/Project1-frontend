@@ -1,3 +1,4 @@
+import './style.css';
 import {useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Pagination, Col, Row } from 'antd';
@@ -72,7 +73,6 @@ export default function ProductList() {
     }
     
     const handlePageChange = (page) => {
-      console.log(page)
       setCurrentPage(page);
     }
     return (
@@ -92,7 +92,7 @@ export default function ProductList() {
                 { value: 'Price: high to low', label: 'Price: high to low' },
               ]}
             />
-              <button onClick={naviToAddProduct}>Add Product</button>
+              <button className="button" onClick={naviToAddProduct}>Add Product</button>
             </Col>
           </Row>
           <Row gutter={16}> {/* Adjust gutter as needed */}

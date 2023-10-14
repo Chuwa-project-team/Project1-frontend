@@ -5,10 +5,17 @@
     justify-content: space-between;
   }
   
-  .buttons {
-    display: flex;
-    gap: 1em;  /* Gap between buttons */
-  }
+  .button {
+    width: 100px;
+    font-size: 12px;
+    background-color: #6655FF;
+    color: white;
+    border: none;
+    padding: 8px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
   
   /* Mobile view */
   @media (max-width: 768px) {

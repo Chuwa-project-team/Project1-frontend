@@ -20,7 +20,6 @@ export default function ProductItem ({
         <img src={placeholderImage} alt="Placeholder" />
         <div className="product-name">{name}</div>
         <div className="product-price">${price.toFixed(2)}</div>
-        <div className="product-description">{description}</div>
         <div>
         {userRole === "regular" || userRole === "admin" ? (
             count === 0 ? (
