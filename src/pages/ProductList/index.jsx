@@ -79,9 +79,10 @@ export default function ProductList() {
         <div>
           <Row gutter={16}>
             < Col xs={24} md={12}>
-              Product List
+            <span style={{fontSize:'24px', fontWeight:'bold'}}>Product List</span>  
             </Col>
             <Col xs={24} md={12}>
+            <span style={{float:'right'}}>
             <Select
               defaultValue="Last added"
               style={{ width: 120 }}
@@ -92,7 +93,9 @@ export default function ProductList() {
                 { value: 'Price: high to low', label: 'Price: high to low' },
               ]}
             />
-              <button className={styles.button} onClick={naviToAddProduct}>Add Product</button>
+            {user.role === 'admin'? <button className={styles.button} onClick={naviToAddProduct}>Add Product</button> : null}
+              
+              </span>  
             </Col>
           </Row>
           <Row gutter={16}> {/* Adjust gutter as needed */}
@@ -115,7 +118,7 @@ export default function ProductList() {
               );
             })}
           </Row>
-          <Pagination defaultCurrent={1} onChange={handlePageChange} pageSize={8} total={products.length} />
+          <Pagination style={{float:'right'}} defaultCurrent={1} onChange={handlePageChange} pageSize={8} total={products.length} />
         </div>
     );
   }

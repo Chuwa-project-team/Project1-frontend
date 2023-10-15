@@ -18,7 +18,9 @@ const headerStyle = {
 
 const contentStyle = {
     //textAlign: 'center',
+    margin: '24px 16px',
     minHeight: 120,
+    padding:'0px'
     //lineHeight: '120px',
     //color: '#fff',
     //backgroundColor: '#108ee9',
