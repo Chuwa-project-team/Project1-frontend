@@ -26,14 +26,14 @@ const Navbar = ({handleCartModalOpen}) => {
             {TITLE}
             </Link>
             <Link to="/search">
-                <Search
+                {/* <Search
                     placeholder="Search"
                     allowClear
                     onSearch={onSearch}
                     style={{
                         width: 300,
                     }}
-                />
+                /> */}
             </Link>
             <div className="navbar-menu">
                 <Space style={{ fontSize: '16px' }}>
