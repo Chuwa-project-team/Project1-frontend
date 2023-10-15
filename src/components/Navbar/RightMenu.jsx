@@ -1,16 +1,18 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { Menu, Avatar } from 'antd';
-import { UserOutlined, LogoutOutlined } from '@ant-design/icons';
+import { UserOutlined, LogoutOutlined,ShoppingCartOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOutUser } from '../../app/userSlice';
 
-const RightMenu = ({ mode }) => {
+const RightMenu = ({ mode, handleCartModalOpen }) => {
+  const  totalPrice  = useSelector(state => state.cart.totalPrice);
   const { user, isAuthenticated } = useSelector(state => state.user);
   const dispatch = useDispatch();
   return (
-    <Menu mode={mode}>
+    <Menu mode={mode} disabledOverflow={true} >
+      
       <Menu.SubMenu
         title={
           <>
@@ -34,7 +36,22 @@ const RightMenu = ({ mode }) => {
             </Menu.Item>
           </>
         )}
-      </Menu.SubMenu>
+        </Menu.SubMenu>
+          <Menu.Item >
+            <div className="mobile-no-display">
+         {isAuthenticated ? (
+          <Menu.Item key="log-out" onClick={() => dispatch(logOutUser())} >
+            Log out
+          </Menu.Item>):(
+          <Menu.Item key="sign-in">
+             <Link to="signin">Log in</Link>
+          </Menu.Item> )}
+          </div>
+          </Menu.Item>
+          <Menu.Item onClick={handleCartModalOpen}>
+                    <ShoppingCartOutlined  />
+                    <span>${totalPrice.toFixed(2)}</span>
+          </Menu.Item>      
     </Menu>
   );
 };

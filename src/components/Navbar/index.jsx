@@ -16,7 +16,7 @@ const TITLE = 'Management';
 const onSearch = (value, _e, info) => console.log(info?.source, value);
 
 const Navbar = ({handleCartModalOpen}) => {    
-    const  totalPrice  = useSelector(state => state.cart.totalPrice);
+    
     const { user, isAuthenticated } = useSelector(state => state.user);
     const dispatch = useDispatch();
     return (
@@ -36,27 +36,14 @@ const Navbar = ({handleCartModalOpen}) => {
                 /> */}
             </Link>
             <div className="navbar-menu">
-                <Space style={{ fontSize: '16px' }}>
-                    <div className="rightMenu">
-                        <RightMenu mode="horizontal" />
+                {/* <Space style={{ fontSize: '16px' }}> */}
+                    <div>
+                        <RightMenu mode="horizontal" handleCartModalOpen={handleCartModalOpen}/>
                     </div>
                     <div className="mobile-no-display">
-                        <UserOutlined />
-                        {isAuthenticated ? (
-                            <>
-                                <a onClick={() => dispatch(logOutUser())}>Sign out</a>
-                            </>
-                        ) : (
-                            <>
-                                <Link to="signin">Sign in</Link>
-                            </>
-                        )}
                     </div>
-                    <div onClick={handleCartModalOpen}>
-                    <ShoppingCartOutlined  />
-                    <span>$<span>{totalPrice.toFixed(2)}</span></span>
-                    </div>
-                </Space>
+
+                {/* </Space> */}
             </div>
         </nav>
 
