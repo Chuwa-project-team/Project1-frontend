@@ -11,21 +11,21 @@
     margin: 10px;
 }
 
-.product-card img {
+.productCard img {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
     margin-bottom: 10px;
 }
 
-.product-name {
+.productName {
     text-align: left;
     height: 20px;
     font-size: 18px;
     margin-bottom: 5px;
 }
 
-.product-price {
+.productPrice {
     color: #333;
     font-size: 18px;
     font-weight: bold;
@@ -50,6 +50,6 @@
     margin: 5px;
 }
 
-.button.edit {
+.buttonEdit {
     background-color: #6c757d;
 }

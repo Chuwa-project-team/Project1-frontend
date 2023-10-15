@@ -3,7 +3,7 @@
 /* eslint-disable react/prop-types */
 import   Counter  from '../Counter';
 import placeholderImage from '../../assets/place_holder.jpg';
-import './style.css';
+import styles from './productItem.module.css';
 export default function ProductItem ({
     name,
     imageUrl,
@@ -16,20 +16,20 @@ export default function ProductItem ({
 }) {
 
     return(
-        <div className="product-card">
+        <div className={styles.productCard}>
         <img src={placeholderImage} alt="Placeholder" />
-        <div className="product-name">{name}</div>
-        <div className="product-price">${price.toFixed(2)}</div>
+        <div className={styles.productName}>{name}</div>
+        <div className={styles.productPrice}>${price.toFixed(2)}</div>
         <div>
         {userRole === "regular" || userRole === "admin" ? (
             count === 0 ? (
-                <button className="button" onClick={()=>countHandler(1)}>Add</button>           
+                <button className={styles.button} onClick={()=>countHandler(1)}>Add</button>           
             ) : (
                 <Counter handler={countHandler} value={count} ></Counter>
             )
         ) : null } 
         {userRole === "admin" ? (
-            <button className="button edit" onClick={editHandler}>Edit</button>
+            <button className={`${styles.button} ${styles.buttonEdit}`} onClick={editHandler}>Edit</button>
         ) : null }
         </div>
     </div>

@@ -1,4 +1,4 @@
-import './style.css';
+import styles from './ProductList.module.css';
 import {useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Pagination, Col, Row } from 'antd';
@@ -92,7 +92,7 @@ export default function ProductList() {
                 { value: 'Price: high to low', label: 'Price: high to low' },
               ]}
             />
-              <button className="button" onClick={naviToAddProduct}>Add Product</button>
+              <button className={styles.button} onClick={naviToAddProduct}>Add Product</button>
             </Col>
           </Row>
           <Row gutter={16}> {/* Adjust gutter as needed */}
