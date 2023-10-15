@@ -42,7 +42,7 @@ const currentUserSlice = createSlice({
     setCurrentUser: (state, action) => {
       state.isAuthenticated = !!Object.keys(action.payload).length;
       state.user = action.payload;      
-      if (action.payload.role >= 777) {
+      if (action.payload.role >= 777 || action.payload.role==='admin') {
         state.user.role = 'admin';
       } else {
         state.user.role = 'regular';
