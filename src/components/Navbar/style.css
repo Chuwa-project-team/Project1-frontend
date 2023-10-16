@@ -16,10 +16,16 @@ border-bottom: 0;
 padding: 0 4px 0 24px;
 }
 
+.user-container {
+  display: flex;
+  flex-direction: row;
+  margin-right: 20px;
+}
+
 .logo {
-color: white;
-font-size: 1.25rem;
-font-weight: 500;
+  color: white;
+  font-size: 2rem;
+  font-weight: 500;
 }
   
 .logo a {
@@ -36,10 +42,38 @@ font-weight: 500;
   display: flex;
   align-items: center;
 }
+
+.logout {
+  color: #1677ff;
+}
+
+.logout:hover {
+  color: #3889fb;
+  cursor: pointer;
+}
+
+
+
 @media (max-width: 767px) {
+.no-display {
+  display: none;
+}
+}
+@media (min-width: 767px) {
+  .mobile-no-display {
+    display: block;
+  }
+
+  .mobile-display {
+    display: none;
+  }
+}
+
+
+@media (max-width: 766px) {
   .rightMenu {
     display: inline;
-}
+  }
 
   .menuButton {
     display: block;
@@ -48,12 +82,19 @@ font-weight: 500;
   }
 
   .mobile-no-display {
-      display: none;
+    display: none;
   }
 
-.subMenuIcon{
-  font-size:150%;
-}
+
+  .subMenuIcon{
+    font-size:150%;
+  }
+
+  .mobile-display {
+    display: block;
+  }
+
+
   .logo a {
     margin-left: -10px;
   }
@@ -63,7 +104,3 @@ font-weight: 500;
   }
 
 }
-
-
-
-  

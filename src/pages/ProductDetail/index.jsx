@@ -16,13 +16,30 @@ function ProductDetail() {
   const dispatch = useDispatch();
   const { name } = useParams();
 
+
   const [product, setProduct] = useState([]);
-  const cartProducts = useSelector((state) => state.cart.products);
-  const cart_product = cartProducts.find(
-    (p) => p.product.name === product.name
-  );
+  const cartProducts = useSelector(state => state.cart.products);
+  const cart_product = cartProducts.find(p => p.product.name === product.name);
   const count = cart_product ? cart_product.count : 0;
-  const { isAuthenticated, user } = useSelector((state) => state.user);
+  const { isAuthenticated, user } = useSelector(state => state.user);
+  const { name } = useParams();
+
+  useEffect( () => {
+      async function fetchProduct() {
+          setProduct(await getProduct(name)) 
+      }
+      fetchProduct();
+  }, []);
+
+  // const cartCountHandlerCreator = (product) => {
+  //     return (value) => {
+  //       cartCountHandler(product, value);
+  //     };
+  //   }
+  const cartCountHandler = (product, value) => {
+    // Dispatch an action to update the cart
+    dispatch(editCartProduct({product, value}));
+  };
 
   useEffect(() => {
     async function fetchProduct() {

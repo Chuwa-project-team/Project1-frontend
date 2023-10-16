@@ -43,7 +43,16 @@ export default function SignIn() {
         },
       ]
     }
-];
+  ];
+
+  const containerStyle = {
+    display: "flex",
+    flexDirection: "row",
+    maxWidth: "400px",
+    justifyContent: "space-between",
+    flexWrap: "wrap",
+    margin: "0 auto",
+  }
 
   const onSubmit = data => {
     dispatch(authUser(data))
@@ -71,7 +80,7 @@ export default function SignIn() {
         title="Sign in to your account"
         fields={fields}
       />
-      <div>
+      <div style={containerStyle}>
         <p>
             Dont have an account? <Link to="/signup">Sign up</Link>.
         </p>
