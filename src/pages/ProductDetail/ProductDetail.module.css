@@ -1,0 +1,17 @@
+/* Existing styles */
+.responsiveDiv {
+    display: flex;
+    justifyContent: space-between;
+}
+
+/* Add responsive styles */
+@media (max-width: 768px) { /* 768px is typical for tablets. Adjust according to your needs for "phone" */
+    .responsiveDiv {
+        flex-direction: column;
+        align-items: center;
+    }
+    .responsiveDiv img {
+        width: 100%; /* Make the image full width on mobile */
+        margin-bottom: 20px; /* Add some spacing between the image and the content below */
+    }
+}
