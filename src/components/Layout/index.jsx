@@ -8,9 +8,9 @@ import {useState, createContext} from 'react';
 import { SearchProvider } from '../../hooks/useSearchContext';
 import CartCard from '../CartCard';
 
-const containerStyle = {
-    height: "100vh",
-};
+// const containerStyle = {
+//     height: "100vh",
+// };
 
 const headerStyle = {
     textAlign: 'center',
@@ -24,7 +24,6 @@ const headerStyle = {
 const contentStyle = {
     margin: '24px 16px',
     minHeight: 120,
-
     padding:'0px'
 
 };
@@ -50,7 +49,8 @@ export default function MainLayout() {
     return (
         <SearchProvider>
         <CartModalContext.Provider value={isCartModalOpen}>
-        <Layout style={containerStyle}>
+        {/* <Layout style={containerStyle}> */}
+        <Layout>
             <Header style={headerStyle}>
                 <Navbar handleCartModalOpen={handleCartModalOpen}/>
             </Header>
