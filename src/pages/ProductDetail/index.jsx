@@ -41,12 +41,12 @@ function ProductDetail() {
     dispatch(editCartProduct({product, value}));
   };
 
-  useEffect(() => {
-    async function fetchProduct() {
-      setProduct(await getProduct(name));
-    }
-    fetchProduct();
-  }, [name]);
+  // useEffect(() => {
+  //   async function fetchProduct() {
+  //     setProduct(await getProduct(name));
+  //   }
+  //   fetchProduct();
+  // }, [name]);
 
 
 

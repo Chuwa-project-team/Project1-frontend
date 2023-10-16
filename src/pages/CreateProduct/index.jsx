@@ -11,7 +11,10 @@ export default function CreateProduct() {
     {
         label: 'Product Name',
         name: 'name',
-        type: 'text'
+        type: 'text',
+        rules: [
+          { required: true, message: 'Name cannot be empty' },
+        ]
     },
     {
         label: 'Product Description',
@@ -26,12 +29,18 @@ export default function CreateProduct() {
     {
         label: 'Price',
         name: 'price',
-        type: 'text'
+        type: 'text',
+        rules: [
+          { required: true, message: 'Price cannot be empty' },
+        ]
     },
     {
         label: 'In Stock Quantity',
         name: 'quantity',
-        type: 'text'
+        type: 'text',
+        rules: [
+          { required: true, message: 'Quantity cannot be empty' },
+        ]
     },
     {
         label: 'Add Image Link',

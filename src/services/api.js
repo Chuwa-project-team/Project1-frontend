@@ -9,7 +9,6 @@ export default async function apiCall({ url: apiUrl, method, data, headers }) {
   if (user?.token) {
     defaultHeaders['Authorization'] = `Bearer ${user.token}`;
   }
-  console.log('defaultHeaders',defaultHeaders);
   const response = await fetch(url, {
     method,
     headers: {

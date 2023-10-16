@@ -25,9 +25,10 @@ export const createNewProduct = async data => {
   });
 };
 
-export const updateProduct = async (name, data) => {
+export const updateProduct = async ( data) => {
+  console.log('updateProduct',data)
   return await apiCall({
-    url: `/api/product/${name}`,
+    url: `/api/product/${data.name}`,
     method: 'PUT',
     data
   });

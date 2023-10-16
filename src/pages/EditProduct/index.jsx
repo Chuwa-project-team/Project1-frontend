@@ -1,29 +1,33 @@
 // import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import ProductForm from '../../components/Form/productForm';
 import { updateProduct } from '../../services/product';
-
+import { getProduct } from "../../services/product";
 export default function EditProduct() {
-  const navigate = useNavigate();
-  const location = useLocation();
 
-  const [productData, setProductData] = useState(null);
+  const navigate = useNavigate();
+  const { name } = useParams();
+
+  const [product, setProduct] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // check if location.state passes product original data
-    if(location.state?.product) {
-      setProductData(location.state.product);
-    } else {
-      console.error("No original product value passes!");
+    async function fetchProduct() {
+      setIsLoading(true);
+      const fetchedProduct = await getProduct(name);
+      setProduct(fetchedProduct);
+      setIsLoading(false);
     }
-  }, [location]);
+    fetchProduct();
+  }, []);
 
   const fields = [
     {
         label: 'Product Name',
         name: 'name',
-        type: 'text'
+        type: 'text',
+        disabled: true,
     },
     {
         label: 'Product Description',
@@ -38,12 +42,18 @@ export default function EditProduct() {
     {
         label: 'Price',
         name: 'price',
-        type: 'text'
+        type: 'text',
+        rules: [
+          { required: true, message: 'Price cannot be empty' },
+        ]
     },
     {
         label: 'In Stock Quantity',
         name: 'quantity',
-        type: 'text'
+        type: 'text',
+        rules: [
+          { required: true, message: 'Price cannot be empty' },
+        ]
     },
     {
         label: 'Add Image Link',
@@ -55,7 +65,7 @@ export default function EditProduct() {
 
   const onSubmit = async (formData) => {
     try {
-      const response = await updateProduct(productData?.name, formData);
+      const response = await updateProduct(formData);
       navigate(location.state?.from || '/');
       console.log(`Product successfully edited ${response}`);
     } catch (err) {
@@ -65,13 +75,17 @@ export default function EditProduct() {
 
   return (
     <div>
-      <ProductForm
-        buttonText="Edit Product"
-        onSubmit={onSubmit}
-        title="Edit Product"
-        fields={fields}
-        initialValueContents={productData}
-      />
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <ProductForm
+          buttonText="Edit Product"
+          onSubmit={onSubmit}
+          title="Edit Product"
+          fields={fields}
+          initialValueContents={product}
+        />
+      )}
     </div>
   );
 }
