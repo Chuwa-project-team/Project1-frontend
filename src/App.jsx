@@ -14,6 +14,7 @@ import CreateProduct from './pages/CreateProduct';
 import EditProduct from './pages/EditProduct';
 import NotFound from './pages/NotFound';
 import PasswordEmailSent from './pages/PasswordEmailSent';
+import ProductDetail from './pages/ProductDetail';
 
 function App() {
   const dispatch = useDispatch();
@@ -36,6 +37,7 @@ function App() {
         <Route path="/" element={<MainLayout />} >
           <Route index element={<ProductList />} />
           <Route path="home" element={<ProductList />} />
+          <Route path="product/:name" element={<ProductDetail />} />  
           <Route path="signup" element={<SignUp />} />
           <Route path="signin" element={<SignIn />} />
           <Route path="password" element={<ForgetPassword />} />

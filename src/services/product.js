@@ -9,6 +9,14 @@ export const getAllProducts = async data => {
   });
 };
 
+export const getProduct = async (name, data) => {
+  return await apiCall({
+    url: `/api/products/${name}`,
+    method: 'GET',
+    data
+  });
+};
+
 export const createNewProduct = async data => {
   return await apiCall({
     url: '/api/products',
