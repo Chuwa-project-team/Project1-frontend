@@ -52,7 +52,7 @@ function ProductDetail() {
             alt={product.name}
             style={{ width: "40%", objectFit: "cover" }}
           />
-          <div style={{ paddingLeft: "24px", width: "50%" }}>
+          <div className={styles.content}>
             {" "}
             <Text type="secondary">{product.category}</Text>
             <Title level={2}>{product.name}</Title>
