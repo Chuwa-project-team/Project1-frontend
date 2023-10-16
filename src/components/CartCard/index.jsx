@@ -3,7 +3,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import React, { useState, useEffect } from 'react';
 import Counter from '../Counter'
-import { editCartProduct } from '../../app/cartSlice';
+import { editCartProduct, removeCartProduct  } from '../../app/cartSlice';
 import {  Modal } from 'antd';
 import { Col, Row, Divider } from 'antd';
 import CartItem from './CartItem';
@@ -20,10 +20,10 @@ function CartCard({isOpen,onCancel}) {
           cartCountHandler(product, value);
         };
       }
-      const cartCountHandler = (product, value) => {
-        // Dispatch an action to update the cart
-        dispatch(editCartProduct({product, value}));
-      };
+    const cartCountHandler = (product, value) => {
+      // Dispatch an action to update the cart
+      dispatch(editCartProduct({product, value}));
+    };
 
       
     return (
@@ -38,6 +38,7 @@ function CartCard({isOpen,onCancel}) {
                   price={product.price}
                   count={count}
                   countHandler={cartCountHandlerCreator(product)}
+                  removeHandler = {()=>{dispatch(removeCartProduct({product}))}}
                   userRole="admin"
                   />
               </Col>
