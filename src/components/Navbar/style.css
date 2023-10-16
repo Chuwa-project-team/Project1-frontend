@@ -16,10 +16,16 @@ border-bottom: 0;
 padding: 0 4px 0 24px;
 }
 
+.user-container {
+  display: flex;
+  flex-direction: row;
+  margin-right: 20px;
+}
+
 .logo {
-color: white;
-font-size: 1.25rem;
-font-weight: 500;
+  color: white;
+  font-size: 2rem;
+  font-weight: 500;
 }
   
 .logo a {
@@ -36,10 +42,25 @@ font-weight: 500;
   display: flex;
   align-items: center;
 }
+
+.logout {
+  color: #1677ff;
+}
+
+.logout:hover {
+  color: #3889fb;
+  cursor: pointer;
+}
+
+/* .web-no-action {
+  pointer-events: none;
+} */
+
+
 @media (max-width: 767px) {
   .rightMenu {
     display: inline;
-}
+  }
 
   .menuButton {
     display: block;
@@ -51,9 +72,10 @@ font-weight: 500;
       display: none;
   }
 
-.subMenuIcon{
-  font-size:150%;
-}
+  .subMenuIcon{
+    font-size:150%;
+  }
+
   .logo a {
     margin-left: -10px;
   }
@@ -63,7 +85,3 @@ font-weight: 500;
   }
 
 }
-
-
-
-  

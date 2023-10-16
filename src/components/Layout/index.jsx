@@ -7,6 +7,11 @@ import Navbar from '../Navbar';
 import {useState, createContext} from 'react';
 //import {blue, grey} from '@ant-design/colors';
 import CartCard from '../CartCard';
+
+const containerStyle = {
+    height: "100vh",
+};
+
 const headerStyle = {
     textAlign: 'center',
     color: '#fff',
@@ -20,7 +25,7 @@ const contentStyle = {
     //textAlign: 'center',
     margin: '24px 16px',
     minHeight: 120,
-    padding:'0px'
+    padding:'0px',
     //lineHeight: '120px',
     //color: '#fff',
     //backgroundColor: '#108ee9',
@@ -34,10 +39,6 @@ const footerStyle = {
     justifyContent: 'space-between',
 };
 
-// const colorStyle = {
-//     color: 
-// };
-
 const CartModalContext = createContext()
 
 export default function MainLayout() {
@@ -50,7 +51,7 @@ export default function MainLayout() {
     }
     return (
         <CartModalContext.Provider value={isCartModalOpen}>
-        <Layout>
+        <Layout style={containerStyle}>
             <Header style={headerStyle}>
                 <Navbar handleCartModalOpen={handleCartModalOpen}/>
             </Header>

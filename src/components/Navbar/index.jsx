@@ -37,27 +37,24 @@ const Navbar = ({handleCartModalOpen}) => {
             </Link>
 
             <Space style={{ fontSize: '16px' }}>
-            <div>
-                <RightMenu mode="horizontal" />
-            </div>
-            <div className="mobile-no-display">
-            </div>
-            
-            <div >
-            <div className="mobile-no-display">
-         {isAuthenticated ? (
-          <div key="log-out" onClick={() => dispatch(logOutUser())} >
-            Log out
-          </div>):(
-          <div key="sign-in">
-             <Link to="signin">Log in</Link>
-          </div> )}
-          </div>
-          </div>
-          <div onClick={handleCartModalOpen}>
+                <div className="user-container">
+                    <RightMenu mode="horizontal" />
+                    <div>
+                        <div className="mobile-no-display">
+                        {isAuthenticated ? (
+                            <div key="log-out" className="logout" onClick={() => dispatch(logOutUser())} >
+                                Log out
+                            </div>):(
+                            <div key="sign-in">
+                                <Link to="signin">Log in</Link>
+                            </div> )}
+                        </div>
+                    </div>
+                </div>
+                <div onClick={handleCartModalOpen}>
                     <ShoppingCartOutlined  />
                     <span>${totalPrice.toFixed(2)}</span>
-          </div>  
+                </div>  
             </Space>
         </nav>
 
