@@ -32,7 +32,7 @@ const Navbar = ({handleCartModalOpen}) => {
             <Link to="/" className="logo">
             {TITLE}
             </Link>
-            <div className="mobile-no-display">
+            <div className="mobile-no-display searchbar">
             <Search placeholder="" onSearch={handleSearchChange} style={{ width: 200 }} />
             </div>
 
@@ -58,10 +58,9 @@ const Navbar = ({handleCartModalOpen}) => {
                     <span>${totalPrice.toFixed(2)}</span>
                 </div>  
             </Space>
+
         </nav>
-        <div className="mobile-display">
-            <Search placeholder="" onSearch={handleSearchChange} style={{ width: 200 }} />
-        </div>
+
 
         </>
     );

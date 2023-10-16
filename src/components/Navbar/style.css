@@ -111,3 +111,12 @@
   }
 
 }
+
+.mobile-search-container {
+  width:100%;
+  background-color: '#fff';
+  min-height: 50px;
+}
+.searchbar{
+  margin-top: 15px;
+}

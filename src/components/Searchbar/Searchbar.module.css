@@ -1,0 +1,40 @@
+  /* Mobile view */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .no-display {
+      display: none;
+    }
+  
+    .mobile-flex {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  
+  @media (min-width: 767px) {
+    .mobileNoDisplay {
+      display: block;
+    }
+  
+    .mobileDisplay {
+      display: none;
+    }
+  }
+  
+  
+  @media (max-width: 766px) {
+    .mobileNoDisplay {
+      display: none;
+    }
+  
+    .mobileDisplay {
+      display: block;
+    }
+  }
+
+ 

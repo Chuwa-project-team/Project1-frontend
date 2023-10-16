@@ -3,7 +3,7 @@
 import { Button, Form, Input, Typography } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
-import styles from "./authForm.module.css";
+import styles from "./Form.module.css";
 export default function AuthForm({
     buttonText,
     onSubmit,

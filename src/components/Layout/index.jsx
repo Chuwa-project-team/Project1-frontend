@@ -1,9 +1,12 @@
+import styles from './Layout.module.css';
+
 import { Layout } from 'antd';
 import { Outlet } from 'react-router-dom';
 const { Header, Footer, Content } = Layout;
 import { Space } from 'antd';
 import { YoutubeOutlined, TwitterOutlined, FacebookOutlined } from '@ant-design/icons';
 import Navbar from '../Navbar';
+import Searchbar from '../Searchbar';
 import {useState, createContext} from 'react';
 import { SearchProvider } from '../../hooks/useSearchContext';
 import CartCard from '../CartCard';
@@ -12,14 +15,14 @@ import CartCard from '../CartCard';
 //     height: "100vh",
 // };
 
-const headerStyle = {
-    textAlign: 'center',
-    color: '#fff',
-    height: 64,
-    paddingInline: 50,
-    lineHeight: '64px',
-    backgroundColor: '#121826',
-};
+// const headerStyle = {
+//     textAlign: 'center',
+//     color: '#fff',
+//     height: 64,
+//     paddingInline: 50,
+//     lineHeight: '64px',
+//     backgroundColor: '#121826',
+// };
 
 const contentStyle = {
     margin: '24px 16px',
@@ -51,8 +54,9 @@ export default function MainLayout() {
         <CartModalContext.Provider value={isCartModalOpen}>
         {/* <Layout style={containerStyle}> */}
         <Layout>
-            <Header style={headerStyle}>
+            <Header className={styles.headerStyle}>
                 <Navbar handleCartModalOpen={handleCartModalOpen}/>
+                <Searchbar/>
             </Header>
             <Content style={contentStyle}>
                 <CartCard isOpen={isCartModalOpen} onCancel={closeCartModal}/>
