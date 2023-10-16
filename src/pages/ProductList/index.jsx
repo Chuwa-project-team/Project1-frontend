@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { editCartProduct } from '../../app/cartSlice';
 import { Select } from 'antd';
 import { useSearch } from '../../hooks/useSearchContext';
+
 export default function ProductList() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -15,10 +16,11 @@ export default function ProductList() {
     const { isAuthenticated, user } = useSelector(state => state.user);
     const cartProducts = useSelector(state => state.cart.products);
 
-    const { searchText } = useSearch();
+
     const [products, setProducts] = useState([]);
     const [order, setOrder] = useState('Last added');
     const [currentPage, setCurrentPage] = useState(1); 
+    const { searchText } = useSearch();
 
 
     useEffect( () => {
@@ -81,8 +83,11 @@ export default function ProductList() {
     const handlePageChange = (page) => {
       setCurrentPage(page);
     }
+
+
     return (
         <div>
+
           <Row gutter={16}>
             < Col xs={24} md={12}>
             <span style={{fontSize:'24px', fontWeight:'bold'}}>Product List</span>  

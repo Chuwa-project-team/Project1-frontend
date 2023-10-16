@@ -10,3 +10,8 @@
 .form {
     margin-top: 5%;
 }
+
+.productFormContainer{
+    max-width: 600px;
+    margin: 40px auto;
+}

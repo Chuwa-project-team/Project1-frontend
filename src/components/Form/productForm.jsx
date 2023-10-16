@@ -4,7 +4,7 @@ import React, { useState, useRef } from 'react';
 import { Button, Form, Input, Typography, Select, Divider, Space, Image, message } from "antd";
 import { LockOutlined, PlusOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
-
+import styles from "./Form.module.css";
 export default function ProductForm({
     buttonText,
     onSubmit,
@@ -23,7 +23,7 @@ export default function ProductForm({
     const options = ['Category1', 'Category2', 'Category3', 'Category4', 'Category5'];
 
     return (
-        <div>
+        <div className={styles.productFormContainer}>
             <Typography>{title}</Typography>
             <Form onFinish={onSubmit} autoComplete="off">
                 {fields.map((field) => (
