@@ -15,14 +15,21 @@ function CartCard({isOpen,onCancel}) {
     const cartProducts = useSelector(state => state.cart.products);
     const dispatch = useDispatch();
 
-    const cartCountHandlerCreator = (product) => {
+    const cartCountHandlerCreator = (product, count) => {
         return (value) => {
-          cartCountHandler(product, value);
+          cartCountHandler(product, value, count);
         };
       }
-    const cartCountHandler = (product, value) => {
+    const cartCountHandler = (product, value, count) => {
       // Dispatch an action to update the cart
+      console.log('count',count)
+      console.log('value',value)
+      if((count+value) === 0){
+        dispatch(removeCartProduct({product}));
+      }
+      else{
       dispatch(editCartProduct({product, value}));
+      }
     };
 
       
@@ -37,7 +44,7 @@ function CartCard({isOpen,onCancel}) {
                   imageUrl={product.imageUrl}
                   price={product.price}
                   count={count}
-                  countHandler={cartCountHandlerCreator(product)}
+                  countHandler={cartCountHandlerCreator(product,count)}
                   removeHandler = {()=>{dispatch(removeCartProduct({product}))}}
                   userRole="admin"
                   />

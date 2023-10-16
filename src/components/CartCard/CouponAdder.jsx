@@ -30,6 +30,7 @@ function CouponAdder({setDiscount}) {
                 placeholder="Enter your coupon"
                 value={couponCode}
                 onChange={handleCouponChange}
+                style={{ margin: "10px 10px 0 0px", width: "130px", height: "30px" }}
             />
             <button onClick={handleSubmit}>Apply</button>
         </div>
