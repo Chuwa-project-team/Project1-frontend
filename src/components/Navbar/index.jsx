@@ -39,7 +39,7 @@ const Navbar = ({handleCartModalOpen}) => {
             <Space style={{ fontSize: '16px' }}>
 
                 <div className="user-container">
-                    <RightMenu mode="horizontal" />
+                    <RightMenu mode="horizontal" className="mobile-style" />
                     <div>
                         <div className="mobile-no-display">
                         {isAuthenticated ? (
@@ -52,7 +52,7 @@ const Navbar = ({handleCartModalOpen}) => {
                         </div>
                     </div>
                 </div>
-                <div onClick={handleCartModalOpen}>
+                <div className="mobile-flex" onClick={handleCartModalOpen}>
 
                     <ShoppingCartOutlined  />
                     <span>${totalPrice.toFixed(2)}</span>
