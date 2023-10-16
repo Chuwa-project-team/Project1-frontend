@@ -52,12 +52,25 @@ padding: 0 4px 0 24px;
   cursor: pointer;
 }
 
-/* .web-no-action {
-  pointer-events: none;
-} */
 
 
 @media (max-width: 767px) {
+.no-display {
+  display: none;
+}
+
+@media (min-width: 767px) {
+  .mobile-no-display {
+    display: block;
+  }
+
+  .mobile-display {
+    display: none;
+  }
+}
+
+
+@media (max-width: 766px) {
   .rightMenu {
     display: inline;
   }
@@ -69,12 +82,18 @@ padding: 0 4px 0 24px;
   }
 
   .mobile-no-display {
-      display: none;
+    display: none;
   }
+
 
   .subMenuIcon{
     font-size:150%;
   }
+
+  .mobile-display {
+    display: block;
+  }
+
 
   .logo a {
     margin-left: -10px;

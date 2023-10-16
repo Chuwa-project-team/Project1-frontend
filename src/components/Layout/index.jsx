@@ -5,7 +5,7 @@ import { Space } from 'antd';
 import { YoutubeOutlined, TwitterOutlined, FacebookOutlined } from '@ant-design/icons';
 import Navbar from '../Navbar';
 import {useState, createContext} from 'react';
-//import {blue, grey} from '@ant-design/colors';
+import { SearchProvider } from '../../hooks/useSearchContext';
 import CartCard from '../CartCard';
 
 const containerStyle = {
@@ -22,13 +22,11 @@ const headerStyle = {
 };
 
 const contentStyle = {
-    //textAlign: 'center',
     margin: '24px 16px',
     minHeight: 120,
-    padding:'0px',
-    //lineHeight: '120px',
-    //color: '#fff',
-    //backgroundColor: '#108ee9',
+
+    padding:'0px'
+
 };
   
 const footerStyle = {
@@ -50,6 +48,7 @@ export default function MainLayout() {
         setIsCartModalOpen(false);
     }
     return (
+        <SearchProvider>
         <CartModalContext.Provider value={isCartModalOpen}>
         <Layout style={containerStyle}>
             <Header style={headerStyle}>
@@ -76,5 +75,6 @@ export default function MainLayout() {
             </Footer>
       </Layout>
       </CartModalContext.Provider>
+      </SearchProvider>
     );
 }

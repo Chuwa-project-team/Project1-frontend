@@ -33,10 +33,10 @@ function ProductDetail({  onAddToCart }) {
     //       cartCountHandler(product, value);
     //     };
     //   }
-      const cartCountHandler = (product, value) => {
-        // Dispatch an action to update the cart
-        dispatch(editCartProduct({product, value}));
-      };
+    const cartCountHandler = (product, value) => {
+      // Dispatch an action to update the cart
+      dispatch(editCartProduct({product, value}));
+    };
 
     const countHandler = (value) => {
         cartCountHandler(product, value);
