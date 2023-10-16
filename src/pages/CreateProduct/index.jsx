@@ -24,7 +24,10 @@ export default function CreateProduct() {
     {
         label: 'Category',
         name: 'category',
-        type: 'select'
+        type: 'select',
+        rules: [
+          { required: true, message: 'Category cannot be empty' },
+        ]
     },
     {
         label: 'Price',

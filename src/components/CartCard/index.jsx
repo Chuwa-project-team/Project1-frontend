@@ -22,8 +22,6 @@ function CartCard({isOpen,onCancel}) {
       }
     const cartCountHandler = (product, value, count) => {
       // Dispatch an action to update the cart
-      console.log('count',count)
-      console.log('value',value)
       if((count+value) === 0){
         dispatch(removeCartProduct({product}));
       }

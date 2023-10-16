@@ -35,8 +35,8 @@ export default function ProductList() {
     );
 
     const currentProducts = filteredProducts.slice(
-      (currentPage - 1) * 8,
-      currentPage * 8
+      (currentPage - 1) * 12,
+      currentPage * 12
     );
     useEffect(() => {
       const sortedProducts = [...products];
@@ -129,7 +129,7 @@ export default function ProductList() {
               );
             })}
           </Row>
-          <Pagination style={{float:'right'}} defaultCurrent={1} onChange={handlePageChange} pageSize={8} total={products.length} />
+          <Pagination style={{float:'right'}} defaultCurrent={1} onChange={handlePageChange} pageSize={12} total={products.length} />
         </div>
     );
   }
