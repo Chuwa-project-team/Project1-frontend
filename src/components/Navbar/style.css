@@ -58,7 +58,7 @@ padding: 0 4px 0 24px;
 .no-display {
   display: none;
 }
-
+}
 @media (min-width: 767px) {
   .mobile-no-display {
     display: block;
