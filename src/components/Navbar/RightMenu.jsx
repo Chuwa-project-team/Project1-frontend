@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOutUser } from '../../app/userSlice';
 
-const RightMenu = ({ mode, handleCartModalOpen }) => {
-  const  totalPrice  = useSelector(state => state.cart.totalPrice);
+const RightMenu = ({ mode}) => {
+  
   const { user, isAuthenticated } = useSelector(state => state.user);
   const dispatch = useDispatch();
   return (
@@ -16,7 +16,8 @@ const RightMenu = ({ mode, handleCartModalOpen }) => {
       <Menu.SubMenu
         title={
           <>
-            <Avatar icon={<UserOutlined />} />
+            {/* <Avatar icon={<UserOutlined />} /> */}
+            <UserOutlined  style={{ fontSize: '120%'}}/>
           </>
         }
       >
@@ -37,21 +38,7 @@ const RightMenu = ({ mode, handleCartModalOpen }) => {
           </>
         )}
         </Menu.SubMenu>
-          <Menu.Item >
-            <div className="mobile-no-display">
-         {isAuthenticated ? (
-          <Menu.Item key="log-out" onClick={() => dispatch(logOutUser())} >
-            Log out
-          </Menu.Item>):(
-          <Menu.Item key="sign-in">
-             <Link to="signin">Log in</Link>
-          </Menu.Item> )}
-          </div>
-          </Menu.Item>
-          <Menu.Item onClick={handleCartModalOpen}>
-                    <ShoppingCartOutlined  />
-                    <span>${totalPrice.toFixed(2)}</span>
-          </Menu.Item>      
+    
     </Menu>
   );
 };

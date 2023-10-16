@@ -51,7 +51,9 @@ font-weight: 500;
       display: none;
   }
 
-
+.subMenuIcon{
+  font-size:150%;
+}
   .logo a {
     margin-left: -10px;
   }

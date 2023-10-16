@@ -13,10 +13,11 @@ export default function SignUp() {
       name: 'email',
       type: 'text',
       rules: [
-        {
-          required: true,
-          message: 'Please input your email!'
-        }
+        { required: true, message: 'Please input your Email!' },
+        { 
+          type: 'email', 
+          message: 'The input is not valid Email!',
+        },
       ]
     },
     {
@@ -24,13 +25,22 @@ export default function SignUp() {
       name: 'password',
       type: 'password',
       rules: [
-        {
-          required: true,
-          message: 'Please input your password!'
-        }
+        { required: true, message: 'Please input your Password!' },
+        { 
+          min: 6, 
+          message: 'Password must be at least 6 characters!',
+        },
+        { 
+          pattern: /[A-Za-z]/, 
+          message: 'Password must contain at least 1 letter!',
+        },
+        { 
+          pattern: /[0-9]/, 
+          message: 'Password must contain at least 1 number!',
+        },
       ]
     }
-  ];
+];
 
   const onSubmit = data => {
     dispatch(signUpUser(data)).then(() => navigate('/signin'));
