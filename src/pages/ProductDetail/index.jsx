@@ -22,7 +22,7 @@ function ProductDetail() {
   const cart_product = cartProducts.find(p => p.product.name === product.name);
   const count = cart_product ? cart_product.count : 0;
   const { isAuthenticated, user } = useSelector(state => state.user);
-  const { name } = useParams();
+  
 
   useEffect( () => {
       async function fetchProduct() {
@@ -48,9 +48,7 @@ function ProductDetail() {
     fetchProduct();
   }, [name]);
 
-  const cartCountHandler = (product, value) => {
-    dispatch(editCartProduct({ product, value }));
-  };
+
 
   const countHandler = (value) => {
     cartCountHandler(product, value);
