@@ -36,10 +36,26 @@ font-weight: 500;
   display: flex;
   align-items: center;
 }
-@media (max-width: 767px) {
+
+.no-display {
+  display: none;
+}
+
+@media (min-width: 767px) {
+  .mobile-no-display {
+    display: block;
+  }
+
+  .mobile-display {
+    display: none;
+  }
+}
+
+
+@media (max-width: 766px) {
   .rightMenu {
     display: inline;
-}
+  }
 
   .menuButton {
     display: block;
@@ -48,12 +64,16 @@ font-weight: 500;
   }
 
   .mobile-no-display {
-      display: none;
+    display: none;
   }
 
-.subMenuIcon{
-  font-size:150%;
-}
+  .mobile-display {
+    display: block;
+  }
+
+  .subMenuIcon{
+    font-size:150%;
+  }
   .logo a {
     margin-left: -10px;
   }

@@ -7,7 +7,7 @@ import ProductItem from '../../components/ProductItem';
 import { useSelector, useDispatch } from 'react-redux';
 import { editCartProduct } from '../../app/cartSlice';
 import { Select } from 'antd';
-
+import { useSearch } from '../../hooks/useSearchContext';
 export default function ProductList() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -15,14 +15,12 @@ export default function ProductList() {
     const { isAuthenticated, user } = useSelector(state => state.user);
     const cartProducts = useSelector(state => state.cart.products);
 
+    const { searchText } = useSearch();
     const [products, setProducts] = useState([]);
     const [order, setOrder] = useState('Last added');
     const [currentPage, setCurrentPage] = useState(1); 
 
-    const currentProducts = products.slice(
-      (currentPage - 1) * 8,
-      currentPage * 8
-    );
+
     useEffect( () => {
         async function fetchProducts() {
           setProducts(await getAllProducts()) 
@@ -30,6 +28,14 @@ export default function ProductList() {
         fetchProducts();
     }, []);
 
+    const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+
+    const currentProducts = filteredProducts.slice(
+      (currentPage - 1) * 8,
+      currentPage * 8
+    );
     useEffect(() => {
       const sortedProducts = [...products];
       if (order === 'Last added') {
