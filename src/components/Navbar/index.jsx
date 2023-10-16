@@ -7,6 +7,7 @@ const { Search } = Input;
 import { MenuOutlined, UserOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import { logOutUser } from '../../app/userSlice';
 import RightMenu from './RightMenu';
+import PropTypes from 'prop-types';
 
 import './style.css';
 
@@ -14,48 +15,57 @@ const TITLE = 'Management';
 
 const onSearch = (value, _e, info) => console.log(info?.source, value);
 
-const Navbar = () => {
+const Navbar = ({handleCartModalOpen}) => {    
+    const  totalPrice  = useSelector(state => state.cart.totalPrice);
     const { user, isAuthenticated } = useSelector(state => state.user);
     const dispatch = useDispatch();
-
     return (
+        <>
         <nav className="navbar">
             <Link to="/" className="logo">
             {TITLE}
             </Link>
             <Link to="/search">
-                <Search
+                {/* <Search
                     placeholder="Search"
                     allowClear
                     onSearch={onSearch}
                     style={{
                         width: 300,
                     }}
-                />
+                /> */}
             </Link>
-            <div className="navbar-menu">
-                <Space style={{ fontSize: '16px' }}>
-                    <div className="rightMenu">
-                        <RightMenu mode="horizontal" />
-                    </div>
-                    <div className="mobile-no-display">
-                        <UserOutlined />
-                        {isAuthenticated ? (
-                            <>
-                                <a onClick={() => dispatch(logOutUser())}>Sign out</a>
-                            </>
-                        ) : (
-                            <>
-                                <Link to="signin">Sign in</Link>
-                            </>
-                        )}
-                    </div>
-                    <ShoppingCartOutlined />
-                    <span>$<span>0.00</span></span>
-                </Space>
+
+            <Space style={{ fontSize: '16px' }}>
+            <div>
+                <RightMenu mode="horizontal" />
             </div>
+            <div className="mobile-no-display">
+            </div>
+            
+            <div >
+            <div className="mobile-no-display">
+         {isAuthenticated ? (
+          <div key="log-out" onClick={() => dispatch(logOutUser())} >
+            Log out
+          </div>):(
+          <div key="sign-in">
+             <Link to="signin">Log in</Link>
+          </div> )}
+          </div>
+          </div>
+          <div onClick={handleCartModalOpen}>
+                    <ShoppingCartOutlined  />
+                    <span>${totalPrice.toFixed(2)}</span>
+          </div>  
+            </Space>
         </nav>
+
+        </>
     );
 }
 
+Navbar.propTypes = {
+    handleCartModalOpen: PropTypes.func.isRequired,
+};
 export default Navbar;

@@ -3,7 +3,7 @@
 import { Button, Form, Input, Typography } from "antd";
 import { LockOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
-
+import styles from "./authForm.module.css";
 export default function AuthForm({
     buttonText,
     onSubmit,
@@ -16,7 +16,7 @@ export default function AuthForm({
     return (
         <>
         <Typography>{title}</Typography>
-        <Form onFinish={onSubmit} autoComplete="off">
+        <Form onFinish={onSubmit} autoComplete="off" className={styles.form}>
             {fields.map(field => (
                 <Form.Item
                     key={field.name}

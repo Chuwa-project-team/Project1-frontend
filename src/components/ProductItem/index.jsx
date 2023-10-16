@@ -1,9 +1,11 @@
 /* eslint-disable no-unused-vars */
 
 /* eslint-disable react/prop-types */
-import {  InputNumber } from 'antd';
+import   Counter  from '../Counter';
 import placeholderImage from '../../assets/place_holder.jpg';
+import { InputNumber } from 'antd';
 import { Link } from 'react-router-dom';
+import styles from './productItem.module.css';
 export default function ProductItem ({
     name,
     imageUrl,

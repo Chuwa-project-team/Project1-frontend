@@ -4,8 +4,9 @@ const { Header, Footer, Content } = Layout;
 import { Space } from 'antd';
 import { YoutubeOutlined, TwitterOutlined, FacebookOutlined } from '@ant-design/icons';
 import Navbar from '../Navbar';
+import {useState, createContext} from 'react';
 //import {blue, grey} from '@ant-design/colors';
-
+import CartCard from '../CartCard';
 const headerStyle = {
     textAlign: 'center',
     color: '#fff',
@@ -16,11 +17,13 @@ const headerStyle = {
 };
 
 const contentStyle = {
-    textAlign: 'center',
+    //textAlign: 'center',
+    margin: '24px 16px',
     minHeight: 120,
-    lineHeight: '120px',
-    color: '#fff',
-    backgroundColor: '#108ee9',
+    padding:'0px'
+    //lineHeight: '120px',
+    //color: '#fff',
+    //backgroundColor: '#108ee9',
 };
   
 const footerStyle = {
@@ -35,15 +38,24 @@ const footerStyle = {
 //     color: 
 // };
 
-
+const CartModalContext = createContext()
 
 export default function MainLayout() {
+    const [isCartModalOpen,setIsCartModalOpen] = useState(false);
+    const handleCartModalOpen = () => {
+        setIsCartModalOpen(!isCartModalOpen);
+    }
+    const closeCartModal = () => {
+        setIsCartModalOpen(false);
+    }
     return (
+        <CartModalContext.Provider value={isCartModalOpen}>
         <Layout>
             <Header style={headerStyle}>
-                <Navbar />
+                <Navbar handleCartModalOpen={handleCartModalOpen}/>
             </Header>
             <Content style={contentStyle}>
+                <CartCard isOpen={isCartModalOpen} onCancel={closeCartModal}/>
                 <Outlet />
             </Content>
             <Footer style={footerStyle}>
@@ -62,5 +74,6 @@ export default function MainLayout() {
                 </Space>
             </Footer>
       </Layout>
+      </CartModalContext.Provider>
     );
 }

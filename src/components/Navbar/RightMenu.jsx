@@ -1,18 +1,23 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import { Menu, Avatar } from 'antd';
-import { UserOutlined, LogoutOutlined } from '@ant-design/icons';
+import { UserOutlined, LogoutOutlined,ShoppingCartOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOutUser } from '../../app/userSlice';
 
-const RightMenu = ({ mode }) => {
+const RightMenu = ({ mode}) => {
+  
   const { user, isAuthenticated } = useSelector(state => state.user);
   const dispatch = useDispatch();
   return (
-    <Menu mode={mode}>
+    <Menu mode={mode} disabledOverflow={true} >
+      
       <Menu.SubMenu
         title={
           <>
-            <Avatar icon={<UserOutlined />} />
+            {/* <Avatar icon={<UserOutlined />} /> */}
+            <UserOutlined  style={{ fontSize: '120%'}}/>
           </>
         }
       >
@@ -32,7 +37,8 @@ const RightMenu = ({ mode }) => {
             </Menu.Item>
           </>
         )}
-      </Menu.SubMenu>
+        </Menu.SubMenu>
+    
     </Menu>
   );
 };

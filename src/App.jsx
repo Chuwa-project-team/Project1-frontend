@@ -14,29 +14,38 @@ import CreateProduct from './pages/CreateProduct';
 import EditProduct from './pages/EditProduct';
 import Product from './pages/Product';
 import NotFound from './pages/NotFound';
-
+import PasswordEmailSent from './pages/PasswordEmailSent';
 
 function App() {
-  const user = useSelector(state => state.user.user);
   const dispatch = useDispatch();
-  //dispatch(setCurrentUser({ id: 1, username: 'exampleUser' }));
-  // useEffect(() => {
-  //   console.log(user);
-  // }, [user]);
-  console.log('App')
+  useEffect(() => {
+    const userString = localStorage.getItem('user');
+    if (userString) {
+      try {
+        const userData = JSON.parse(userString);
+        dispatch(setCurrentUser(userData));
+      } catch (e) {
+        console.error("Parsing error:", e);
+      }
+    }
+  }, [dispatch]); 
+  const user = useSelector(state => state.user.user);
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainLayout />} >
+          <Route index element={<ProductList />} />
           <Route path="home" element={<ProductList />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="signin" element={<SignIn />} />
           <Route path="password" element={<ForgetPassword />} />
           {/* <Route element={<AuthLayout />}> */}
           <Route path="createProduct" element={<CreateProduct />} />
-          <Route path="editProduct/:productID" element={<EditProduct />} />
-          <Route path = "product/:productID" element={<Product />} />
+          <Route path="editProduct/:name" element={<EditProduct />} />
+          <Route path = "product/:name" element={<Product />} />
           {/* </Route> */}
+          <Route path="passwordEmailSent" element={<PasswordEmailSent />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

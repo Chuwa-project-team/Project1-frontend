@@ -13,7 +13,6 @@ export const authUser = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const user = await signIn(data);
-      localStorage.setItem('token', user.token);
       return user;
     } catch (error) {
       const { message } = error;
@@ -42,19 +41,31 @@ const currentUserSlice = createSlice({
   reducers: {
     setCurrentUser: (state, action) => {
       state.isAuthenticated = !!Object.keys(action.payload).length;
-      state.user = action.payload;
+      state.user = action.payload;      
+      if (action.payload.role >= 777 || action.payload.role==='admin') {
+        state.user.role = 'admin';
+      } else {
+        state.user.role = 'regular';
+      }
+      localStorage.setItem('user', JSON.stringify(action.payload));
     },
     logOutUser: (state, action) => {
       state.isAuthenticated = false;
       state.user = {};
       state.status = 'idle';
-      localStorage.removeItem('token');
+      localStorage.removeItem('user');
     }
   },
   extraReducers: builder => {
     builder.addCase(authUser.fulfilled, (state, action) => {
-      state.isAuthenticated = !!Object.keys(action.payload).length;
+      state.isAuthenticated = true;
       state.user = action.payload;
+      if (action.payload.role >= 777) {
+        state.user.role = 'admin';
+      } else {
+        state.user.role = 'regular';
+      }
+      localStorage.setItem('user', JSON.stringify(action.payload));
       state.status = 'succeeded';
     });
     builder.addCase(authUser.rejected, (state, action) => {

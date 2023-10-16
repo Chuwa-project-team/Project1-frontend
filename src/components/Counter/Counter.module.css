@@ -1,0 +1,32 @@
+.counterContainer {
+    background-color: #6655FF;
+    min-width: 40%;
+    font-size: 12px;
+    background-color: #6655FF;
+    color: white;
+    border: none;
+    padding: 8px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.counterText {
+    font-size: 12px;
+    background-color: #6655FF;
+    color: white;
+    border: none;
+    padding: 8px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+.counterButton {
+    background-color: #6655FF;
+    color: white;
+    border: none;
+    padding: 8px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
