@@ -1,59 +1,56 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 
+import { Button, Card, Typography, Tag, Flex } from "antd";
+import Meta from "./meta.png";
+const { Title, Text } = Typography;
 export default function Product() {
-    const location = useLocation();
-    const product = location.state.product;
+  const location = useLocation();
+  const product = location.state.product;
 
-    // Use product info to display details
+  return (
+    <div style={{ padding: "24px", display: "flex", justifyContent: "center" }}>
+      <Card style={{ width: 800 }} bordered={true}>
+        <Flex justify="space-between">
+          {/* wrap="wrap" gap="small" */}
+          <img
+            src={Meta}
+            alt="Product"
+            style={{ width: "40%", objectFit: "cover" }}
+          />
+
+          <div style={{ paddingLeft: "24px", width: "50%" }}>
+            <Text type="secondary">Category1</Text>
+            <Title level={2}>{product.name}</Title>
+            <Flex align="center">
+              <Title level={3}>{product.price}</Title>
+
+              {product.count !== 0 ? (
+                <Tag color="green" style={{ height: "fit-content" }}>
+                  In Stock
+                </Tag>
+              ) : (
+                <Tag color="red" style={{ height: "fit-content" }}>
+                  Out of Stock
+                </Tag>
+              )}
+            </Flex>
+            <Text>{product.description}</Text>
+
+            <div style={{ marginTop: "24px" }}>
+              <Button
+                type="primary"
+                style={{ marginRight: "16px" }}
+                onClick={product.countHandler}
+              >
+                Add To Cart
+              </Button>
+              <Button onClick={product.editHandler}>Edit</Button>
+            </div>
+          </div>
+        </Flex>
+      </Card>
+    </div>
+  );
+
+  // Use product info to display details
 }
-
-
-// import "./styles.css";
-
-// import React from 'react';
-// import { Button, Card, Typography, Tag,Flex} from 'antd';
-// import Meta from './meta.png'
-// const { Title, Text } = Typography;
-
-// function App() {
-//   return (
-//     <div style={{ padding: '24px', display: 'flex', justifyContent: 'center' }}>
-//       <Card
-//         style={{ width: 800 }}
-//         bordered={true}
-//       >
-//         <Flex justify = "space-between" >
-//         {/* wrap="wrap" gap="small" */}
-//         <img
-//           src={Meta}
-//           alt="Product"
-//           style={{ width: '40%', objectFit: 'cover' }}
-//         />
-
-//         <div style={{ paddingLeft: '24px', width: '50%' }}>
-//           <Text type="secondary">Category1</Text>
-//           <Title level={2}>Meta Quest2 VR headset</Title>
-//           <Flex align="center">
-//           <Title level={3}>$299</Title>
-//           <Tag color="red"  style={{height: 'fit-content'}}>Out of Stock</Tag>
-//           </Flex>
-//           <Text>
-//             Hundreds of hit games, one-of-a-kind experiences, live events,
-//             new ways to stay fit and a growing community... 
-//           </Text>
-
-//           <div style={{ marginTop: '24px' }}>
-//             <Button type="primary" style={{ marginRight: '16px' }}>
-//               Add To Cart
-//             </Button>
-//             <Button>Edit</Button>
-//           </div>
-//         </div>
-//         </Flex>
-//       </Card>
-//     </div>
-//   );
-// }
-
-// export default App;
-
