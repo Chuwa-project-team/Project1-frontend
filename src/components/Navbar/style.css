@@ -12,14 +12,15 @@
 }
 
 .nav-header {
-border-bottom: 0;
-padding: 0 4px 0 24px;
+  border-bottom: 0;
+  padding: 0 4px 0 24px;
 }
 
 .user-container {
   display: flex;
   flex-direction: row;
   margin-right: 20px;
+  margin-left: 20px;
 }
 
 .logo {
@@ -35,7 +36,7 @@ padding: 0 4px 0 24px;
 }
 
 .rightMenu {
-    display: none;
+  display: none;
 }
 
 .navbar-menu {
@@ -55,10 +56,16 @@ padding: 0 4px 0 24px;
 
 
 @media (max-width: 767px) {
-.no-display {
-  display: none;
+  .no-display {
+    display: none;
+  }
+
+  .mobile-flex {
+    display: flex;
+    flex-direction: row;
+  }
 }
-}
+
 @media (min-width: 767px) {
   .mobile-no-display {
     display: block;
