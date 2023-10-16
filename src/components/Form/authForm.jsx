@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { Button, Form, Input, Typography } from "antd";
-import { LockOutlined } from "@ant-design/icons";
+import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
 import styles from "./authForm.module.css";
 export default function AuthForm({
@@ -14,8 +14,8 @@ export default function AuthForm({
     const {status} = useSelector(state => state.user);
 
     return (
-        <>
-        <Typography>{title}</Typography>
+        <div className={styles.container}>
+        <Typography className={styles.title}>{title}</Typography>
         <Form onFinish={onSubmit} autoComplete="off" className={styles.form}>
             {fields.map(field => (
                 <Form.Item
@@ -31,7 +31,7 @@ export default function AuthForm({
                     />
                     ) : (
                     <Input
-                        prefix={<LockOutlined />}
+                        prefix={<UserOutlined />}
                         placeholder={field.placeholder}
                         size='large'
                     />
@@ -49,6 +49,6 @@ export default function AuthForm({
                 </Button>
             </Form.Item>
         </Form>
-        </>
+        </div>
     )
 }

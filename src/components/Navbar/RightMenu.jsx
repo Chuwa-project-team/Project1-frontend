@@ -20,6 +20,8 @@ const RightMenu = ({ mode}) => {
             <UserOutlined  style={{ fontSize: '120%'}}/>
           </>
         }
+
+        style={{paddingInline: "0px"}}
       >
         {isAuthenticated ? (
           <>

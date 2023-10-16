@@ -22,6 +22,15 @@ export default function ForgetPassword() {
     }
   ];
 
+  const containerStyle = {
+    display: "flex",
+    flexDirection: "row",
+    maxWidth: "400px",
+    justifyContent: "space-between",
+    flexWrap: "wrap",
+    margin: "0 auto",
+  }
+
   const onSubmit = data => {
     // dispatch(signUpUser(data)).then(() => navigate('/passwordEmailSent'));
     navigate('/passwordEmailSent');
@@ -34,7 +43,7 @@ export default function ForgetPassword() {
         title="Update your password"
         fields={fields}
       />
-      <div>
+      <div style={containerStyle}>
         <p>
             Create a new account? <Link to="/signup">Sign up</Link>.
         </p>

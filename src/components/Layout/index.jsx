@@ -7,6 +7,11 @@ import Navbar from '../Navbar';
 import {useState, createContext} from 'react';
 import { SearchProvider } from '../../hooks/useSearchContext';
 import CartCard from '../CartCard';
+
+const containerStyle = {
+    height: "100vh",
+};
+
 const headerStyle = {
     textAlign: 'center',
     color: '#fff',
@@ -19,6 +24,7 @@ const headerStyle = {
 const contentStyle = {
     margin: '24px 16px',
     minHeight: 120,
+
     padding:'0px'
 
 };
@@ -30,8 +36,6 @@ const footerStyle = {
     display: 'flex',
     justifyContent: 'space-between',
 };
-
-
 
 const CartModalContext = createContext()
 
@@ -46,7 +50,7 @@ export default function MainLayout() {
     return (
         <SearchProvider>
         <CartModalContext.Provider value={isCartModalOpen}>
-        <Layout>
+        <Layout style={containerStyle}>
             <Header style={headerStyle}>
                 <Navbar handleCartModalOpen={handleCartModalOpen}/>
             </Header>
